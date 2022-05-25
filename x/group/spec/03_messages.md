@@ -15,9 +15,9 @@ passed into the group keeper as a config.
 
 It's expected to fail if
 
-- metadata length is greater than `MaxMetadataLen`
+* metadata length is greater than `MaxMetadataLen`
   config
-- members are not correctly set (e.g. wrong address format, duplicates, or with 0 weight).
+* members are not correctly set (e.g. wrong address format, duplicates, or with 0 weight).
 
 ## Msg/UpdateGroupMembers
 
@@ -29,8 +29,8 @@ In the list of `MemberUpdates`, an existing member can be removed by setting its
 
 It's expected to fail if:
 
-- the signer is not the admin of the group.
-- for any one of the associated group policies, if its decision policy's `Validate()` method fails against the updated group.
+* the signer is not the admin of the group.
+* for any one of the associated group policies, if its decision policy's `Validate()` method fails against the updated group.
 
 ## Msg/UpdateGroupAdmin
 
@@ -48,8 +48,8 @@ The `UpdateGroupMetadata` can be used to update a group metadata.
 
 It's expected to fail if:
 
-- new metadata length is greater than `MaxMetadataLen` config.
-- the signer is not the admin of the group.
+* new metadata length is greater than `MaxMetadataLen` config.
+* the signer is not the admin of the group.
 
 ## Msg/CreateGroupPolicy
 
@@ -59,9 +59,9 @@ A new group policy can be created with the `MsgCreateGroupPolicy`, which has an 
 
 It's expected to fail if:
 
-- the signer is not the admin of the group.
-- metadata length is greater than `MaxMetadataLen` config.
-- the decision policy's `Validate()` method doesn't pass against the group.
+* the signer is not the admin of the group.
+* metadata length is greater than `MaxMetadataLen` config.
+* the decision policy's `Validate()` method doesn't pass against the group.
 
 ## Msg/CreateGroupWithPolicy
 
@@ -87,8 +87,8 @@ The `UpdateGroupPolicyDecisionPolicy` can be used to update a decision policy.
 
 It's expected to fail if:
 
-- the signer is not the admin of the group policy.
-- the new decision policy's `Validate()` method doesn't pass against the group.
+* the signer is not the admin of the group policy.
+* the new decision policy's `Validate()` method doesn't pass against the group.
 
 ## Msg/UpdateGroupPolicyMetadata
 
@@ -98,8 +98,8 @@ The `UpdateGroupPolicyMetadata` can be used to update a group policy metadata.
 
 It's expected to fail if:
 
-- new metadata length is greater than `MaxMetadataLen` config.
-- the signer is not the admin of the group.
+* new metadata length is greater than `MaxMetadataLen` config.
+* the signer is not the admin of the group.
 
 ## Msg/SubmitProposal
 
@@ -110,8 +110,8 @@ An optional `Exec` value can be provided to try to execute the proposal immediat
 
 It's expected to fail if:
 
-- metadata length is greater than `MaxMetadataLen` config.
-- if any of the proposers is not a group member.
+* metadata length is greater than `MaxMetadataLen` config.
+* if any of the proposers is not a group member.
 
 ## Msg/WithdrawProposal
 
@@ -121,8 +121,8 @@ A proposal can be withdrawn using `MsgWithdrawProposal` which has an `address` (
 
 It's expected to fail if:
 
-- the signer is neither the group policy admin nor proposer of the proposal.
-- the proposal is already closed or aborted.
+* the signer is neither the group policy admin nor proposer of the proposal.
+* the proposal is already closed or aborted.
 
 ## Msg/Vote
 
@@ -133,8 +133,8 @@ An optional `Exec` value can be provided to try to execute the proposal immediat
 
 It's expected to fail if:
 
-- metadata length is greater than `MaxMetadataLen` config.
-- the proposal is not in voting period anymore.
+* metadata length is greater than `MaxMetadataLen` config.
+* the proposal is not in voting period anymore.
 
 ## Msg/Exec
 
@@ -144,8 +144,8 @@ A proposal can be executed with the `MsgExec`.
 
 The messages that are part of this proposal won't be executed if:
 
-- the proposal has not been accepted by the group policy.
-- the proposal has already been successfully executed.
+* the proposal has not been accepted by the group policy.
+* the proposal has already been successfully executed.
 
 ## Msg/LeaveGroup
 
@@ -155,5 +155,5 @@ The `MsgLeaveGroup` allows group member to leave a group.
 
 It's expected to fail if:
 
-- the group member is not part of the group.
-- for any one of the associated group policies, if its decision policy's `Validate()` method fails against the updated group.
+* the group member is not part of the group.
+* for any one of the associated group policies, if its decision policy's `Validate()` method fails against the updated group.
